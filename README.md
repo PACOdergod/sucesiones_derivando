@@ -8,6 +8,12 @@ del canal de youtube
 
 ### Link: https://www.youtube.com/watch?v=YghBJcxkhPY
 
-TODO: implementar un algoritmo que cree la funcion a partir de una sucesion dada
-
 * La funcion para comprobar una lista linear esta lista
+* La implementacion en go para lista linear esta lista
+
+** Falta funcion para listas no lineales
+
+
+* TODO:
+** Implementar la funcion para listas lineales en go
+** funcion para listas no lineales

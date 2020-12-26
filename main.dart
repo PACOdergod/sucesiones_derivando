@@ -46,7 +46,7 @@ void crearFuncion(List<int> sucesion) {
     // print(sucesion[n]);
     _listaComprobada.add(valorIndex);
   }
-  print(_listaComprobada);
+  // print(_listaComprobada);
   comprobarIgualdad(_listaComprobada);
 }
 
@@ -68,9 +68,9 @@ void comprobarIgualdad(List<int> lista) {
     comprobarIgualdad(_listaIgualdad);
   } else {
     if (lista.first == 1) {
-      print('Igualdad');
+      print('Sucesion lineal');
     } else {
-      print('no igualdad');
+      print('no lineal');
     }
   }
   // print(_listaIgualdad);
