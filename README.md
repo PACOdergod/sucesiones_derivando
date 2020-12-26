@@ -8,12 +8,12 @@ del canal de youtube
 
 ### Link: https://www.youtube.com/watch?v=YghBJcxkhPY
 
-* La funcion para comprobar una lista linear esta lista
-* La implementacion en go para lista linear esta lista
+- La funcion para comprobar una lista linear esta lista
+- La implementacion en go para lista linear esta lista
 
 ** Falta funcion para listas no lineales
 
 
 * TODO:
-** Implementar la funcion para listas lineales en go
-** funcion para listas no lineales
+  * Implementar la funcion para listas lineales en go
+  * funcion para listas no lineales
