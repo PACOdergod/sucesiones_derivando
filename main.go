@@ -15,40 +15,52 @@ func main() {
 	// arregloNoLi2 := []int{1, 2, 4, 8, 16, 32}
 	// analizarArreglo(arregloNoLi2)
 
-	arregloNoLi := []int{1, 5, 25, 125}
-	analizarArreglo(arregloNoLi)
+	// arregloNoLi := []int{1, 5, 25, 125}
+	// analizarArreglo(arregloNoLi)
 
 	// TODO: implementar el analisis para funciones cuadraticas
-
+	// x^2
+	arregloCudratic := []int{1, 4, 9, 16, 25, 36}
+	analizarArreglo(arregloCudratic)
 }
 
-// ejecuta analizarListaLineal y si regresa false
-// ejecuta analizarListaExonencial
+// ejecuta analizarListaLineal
+// si regresa false ejecuta analizarListaExponencial
+// si regresa false ejecutara analizarCuadratic
 func analizarArreglo(a []int) {
 	r := analizarListaLineal(a)
 	if r == false {
-		f := analizarListaExonencial(a)
-		fmt.Println(f)
+		v := analizarListaExponencial(a)
+		if !v {
+			fmt.Println("ejecutando analizarCuadratic")
+
+		}
 	}
 }
 
-func analizarListaExonencial(a []int) string {
-	var funcion string
+func analizarListaExponencial(a []int) bool {
+
 	res := obtenerDivision(a)
-	// fmt.Println(res)
 	resIgual := comprobarIgualdad(res)
-	// fmt.Println(resIgual)
 	resF := comprobarVerdad(resIgual)
-	// fmt.Println(resF)
-	if resF {
-		funcion = obtenerFuncionX(res)
 
-		// fmt.Println(funcion)
-	} else {
-		funcion = "no se :(, problema con analizarListaExonencial"
+	v := comprobarExponencial(resF, a)
+	return v
+}
 
+func comprobarExponencial(a bool, b []int) bool {
+	var r bool
+	if a {
+		fmt.Printf("el arreglo %v es exponencial :)\n", b)
+		f := obtenerFuncionX(b)
+		fmt.Println(f)
+		r = true
 	}
-	return funcion
+	if !a {
+		fmt.Printf("el arreglo %v no es exponencial :(\n", b)
+		r = false
+	}
+	return r
 }
 
 func analizarListaLineal(a []int) bool {
@@ -117,12 +129,12 @@ func comprobarVerdad(a []bool) bool {
 func comprobarLineal(a bool, b []int) bool {
 	var r bool
 	if a {
-		fmt.Printf("el arreglo %v es lineal\n", b)
+		fmt.Printf("el arreglo %v es lineal :)\n", b)
 		f := obtenerFuncionLineal(b)
 		fmt.Println(f)
 		r = true
 	} else {
-		fmt.Printf("el arreglo %v no es lineal\n", b)
+		fmt.Printf("el arreglo %v no es lineal :(\n", b)
 		r = false
 	}
 	return r
@@ -162,7 +174,7 @@ func obtenerFuncionX(a []int) string {
 	// fmt.Println(r)
 	f := strconv.Itoa(r)
 	// fmt.Println(f)
-	funcion := "la funcion de esta lista lineal es an = (n-1)*" + f
+	funcion := "la funcion de esta lista exponencial es an = (n-1)*" + f
 	// fmt.Println(funcion)
 	return funcion
 }
