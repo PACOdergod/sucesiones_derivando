@@ -11,7 +11,7 @@ del canal de youtube
 - La funcion para comprobar una lista linear esta lista
 - La implementacion en go para lista linear esta lista
 
-** Falta funcion para listas no lineales
+* Falta funcion para listas no lineales
 
 
 * TODO:
