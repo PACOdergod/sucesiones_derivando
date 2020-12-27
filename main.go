@@ -9,27 +9,30 @@ func main() {
 	// x := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	// analizarListaLineal(x)
 
-	a := []int{7, 8, 9, 10, 11}
-	analizarArreglo(a)
+	// a := []int{7, 8, 9, 10, 11}
+	// analizarArreglo(a)
 
 	// arregloNoLi2 := []int{1, 2, 4, 8, 16, 32}
 	// analizarArreglo(arregloNoLi2)
 
 	arregloNoLi := []int{1, 5, 25, 125}
 	analizarArreglo(arregloNoLi)
+
+	// TODO: implementar el analisis para funciones cuadraticas
+
 }
 
 // ejecuta analizarListaLineal y si regresa false
-// ejecuta analizarListaX
+// ejecuta analizarListaExonencial
 func analizarArreglo(a []int) {
 	r := analizarListaLineal(a)
 	if r == false {
-		f := analizarListaX(a)
+		f := analizarListaExonencial(a)
 		fmt.Println(f)
 	}
 }
 
-func analizarListaX(a []int) string {
+func analizarListaExonencial(a []int) string {
 	var funcion string
 	res := obtenerDivision(a)
 	// fmt.Println(res)
@@ -39,12 +42,13 @@ func analizarListaX(a []int) string {
 	// fmt.Println(resF)
 	if resF {
 		funcion = obtenerFuncionX(res)
-		return funcion
+
 		// fmt.Println(funcion)
 	} else {
-		funcion = "no se :(, problema con analizarListaX"
-		return funcion
+		funcion = "no se :(, problema con analizarListaExonencial"
+
 	}
+	return funcion
 }
 
 func analizarListaLineal(a []int) bool {
