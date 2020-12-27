@@ -6,14 +6,45 @@ import (
 )
 
 func main() {
-	x := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-	analizarListaLineal(x)
+	// x := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	// analizarListaLineal(x)
 
 	a := []int{7, 8, 9, 10, 11}
-	analizarListaLineal(a)
+	analizarArreglo(a)
 
-	arregloNoLi := []int{1, 2, 4, 8, 16, 32}
-	analizarListaLineal(arregloNoLi)
+	// arregloNoLi2 := []int{1, 2, 4, 8, 16, 32}
+	// analizarArreglo(arregloNoLi2)
+
+	arregloNoLi := []int{1, 5, 25, 125}
+	analizarArreglo(arregloNoLi)
+}
+
+// ejecuta analizarListaLineal y si regresa false
+// ejecuta analizarListaX
+func analizarArreglo(a []int) {
+	r := analizarListaLineal(a)
+	if r == false {
+		f := analizarListaX(a)
+		fmt.Println(f)
+	}
+}
+
+func analizarListaX(a []int) string {
+	var funcion string
+	res := obtenerDivision(a)
+	// fmt.Println(res)
+	resIgual := comprobarIgualdad(res)
+	// fmt.Println(resIgual)
+	resF := comprobarVerdad(resIgual)
+	// fmt.Println(resF)
+	if resF {
+		funcion = obtenerFuncionX(res)
+		return funcion
+		// fmt.Println(funcion)
+	} else {
+		funcion = "no se :(, problema con analizarListaX"
+		return funcion
+	}
 }
 
 func analizarListaLineal(a []int) bool {
@@ -23,6 +54,7 @@ func analizarListaLineal(a []int) bool {
 	// fmt.Println(z)
 	lineal := comprobarVerdad(z)
 	r := comprobarLineal(lineal, a)
+
 	return r
 }
 
@@ -76,20 +108,8 @@ func comprobarVerdad(a []bool) bool {
 	return s
 }
 
-// Divide un numero con el numero anterior
-// y regresa una lista con los cocientes
-func obtenerDivision(arreglo []int) []int {
-	divisiones := []int{}
-
-	for i := 1; i < len(arreglo); i++ {
-		division := arreglo[i] / arreglo[i-1]
-		divisiones = append(divisiones, division)
-	}
-	// fmt.Println(divisiones)
-	return divisiones
-}
-
 // regresa un true si el arreglo es lineal y lo imprime
+// si no es lineal regresa un false y lo imprime
 func comprobarLineal(a bool, b []int) bool {
 	var r bool
 	if a {
@@ -104,6 +124,8 @@ func comprobarLineal(a bool, b []int) bool {
 	return r
 }
 
+// Solo debe usarse con los arreglos lineales
+// concatena la diferencia del valor - su posicion
 func obtenerFuncionLineal(a []int) string {
 	var r int
 	r = a[0] - 1
@@ -111,6 +133,32 @@ func obtenerFuncionLineal(a []int) string {
 	f := strconv.Itoa(r)
 	// fmt.Println(f)
 	funcion := "la funcion de esta lista lineal es an = n + " + f
+	// fmt.Println(funcion)
+	return funcion
+}
+
+// Divide un numero con el numero anterior
+// y regresa una lista con los cocientes
+func obtenerDivision(arreglo []int) []int {
+	divisiones := []int{}
+
+	for i := 1; i < len(arreglo); i++ {
+		division := arreglo[i] / arreglo[i-1]
+		divisiones = append(divisiones, division)
+	}
+	// fmt.Println(divisiones)
+	return divisiones
+}
+
+// Solo debe usarse con los arreglos crecimiento multiplicado
+// concatena la diferencia del valor - su posicion
+func obtenerFuncionX(a []int) string {
+	var r int
+	r = a[0]
+	// fmt.Println(r)
+	f := strconv.Itoa(r)
+	// fmt.Println(f)
+	funcion := "la funcion de esta lista lineal es an = (n-1)*" + f
 	// fmt.Println(funcion)
 	return funcion
 }
